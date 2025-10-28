@@ -74,11 +74,12 @@ sage-landing/
 
 ## 🔗 관련 링크
 
-- [SAGE GitHub](https://github.com/sage-x-project/sage)
+- [SAGE GitHub](/)  
+  ↳ 실제 링크는 코드에서 `lib/constants.ts`의 `LINKS.GITHUB_REPO`로 관리됩니다.
 - [Documentation](#)
 - [API Reference](#)
 
 ---
 
 **2025 오픈소스 개발자대회 출품작**  
-과학기술정보통신부 · 정보통신산업진흥원 주최
+(텍스트는 코드에서 `lib/constants.ts`의 `EVENT`로 관리됩니다.)
