@@ -1,7 +1,41 @@
 import { Shield, Lock, Database, CheckCircle } from "lucide-react";
+import type { ComponentType } from "react";
+
+type ColorKey = "blue" | "sky" | "cyan";
+
+interface SolutionItem {
+  icon: ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  features: string[];
+  color: ColorKey;
+}
 
 export default function Solution() {
-  const solutions = [
+  const colorClassMap: Record<
+    ColorKey,
+    { from: string; to: string; bg: string; check: string }
+  > = {
+    blue: {
+      from: "from-blue-50",
+      to: "to-blue-100",
+      bg: "bg-blue-600",
+      check: "text-blue-600",
+    },
+    sky: {
+      from: "from-sky-50",
+      to: "to-sky-100",
+      bg: "bg-sky-600",
+      check: "text-sky-600",
+    },
+    cyan: {
+      from: "from-cyan-50",
+      to: "to-cyan-100",
+      bg: "bg-cyan-600",
+      check: "text-cyan-600",
+    },
+  };
+  const solutions: SolutionItem[] = [
     {
       icon: Lock,
       title: "RFC-9421 메시지 서명",
@@ -55,10 +89,16 @@ export default function Solution() {
           {solutions.map((solution, index) => (
             <div
               key={index}
-              className={`bg-gradient-to-br from-${solution.color}-50 to-${solution.color}-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-2`}
+              className={`bg-gradient-to-br ${
+                colorClassMap[solution.color].from
+              } ${
+                colorClassMap[solution.color].to
+              } p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-2`}
             >
               <div
-                className={`bg-${solution.color}-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-6`}
+                className={`${
+                  colorClassMap[solution.color].bg
+                } w-16 h-16 rounded-2xl flex items-center justify-center mb-6`}
               >
                 <solution.icon className="h-8 w-8 text-white" />
               </div>
@@ -70,7 +110,9 @@ export default function Solution() {
                 {solution.features.map((feature, i) => (
                   <li key={i} className="flex items-start">
                     <CheckCircle
-                      className={`h-5 w-5 text-${solution.color}-600 mr-2 mt-0.5 flex-shrink-0`}
+                      className={`h-5 w-5 ${
+                        colorClassMap[solution.color].check
+                      } mr-2 mt-0.5 flex-shrink-0`}
                     />
                     <span className="text-gray-700 text-sm">{feature}</span>
                   </li>
