@@ -1,4 +1,5 @@
 import { Shield, Github, Mail } from "lucide-react";
+import { LINKS, CONTACT, PROJECT } from "@/lib/constants";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,16 +12,16 @@ export default function Footer() {
           <div className="col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <Shield className="h-8 w-8 text-indigo-500" />
-              <span className="text-2xl font-bold text-white">SAGE</span>
+              <span className="text-2xl font-bold text-white">{PROJECT.NAME}</span>
             </div>
             <p className="text-gray-400 mb-4">
-              Secure Agent Guarantee Engine
+              {PROJECT.FULL_NAME}
               <br />
-              Trust Layer for AI Agent Era
+              {PROJECT.TAGLINE}
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://github.com/sage-x-project/sage"
+                href={LINKS.GITHUB_REPO}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-gray-800 p-2 rounded-lg hover:bg-gray-700 transition-colors"
@@ -28,7 +29,7 @@ export default function Footer() {
                 <Github className="h-5 w-5" />
               </a>
               <a
-                href="mailto:contact@sage-project.io"
+                href={`mailto:${CONTACT.EMAIL}`}
                 className="bg-gray-800 p-2 rounded-lg hover:bg-gray-700 transition-colors"
               >
                 <Mail className="h-5 w-5" />
@@ -78,7 +79,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="https://github.com/sage-x-project/sage"
+                  href={LINKS.GITHUB_REPO}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
@@ -87,17 +88,32 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a
+                  href={LINKS.DOCUMENTATION}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
                   Documentation
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a
+                  href={LINKS.API_REFERENCE}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
                   API Reference
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a
+                  href={LINKS.EXAMPLES}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
                   Examples
                 </a>
               </li>
@@ -109,7 +125,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-gray-400">
-              © {currentYear} SAGE Project. Licensed under LGPL-v3.
+              © {currentYear} {PROJECT.NAME} Project. Licensed under LGPL-v3.
             </div>
             <div className="text-sm text-gray-400">
               2025 오픈소스 개발자대회 출품작

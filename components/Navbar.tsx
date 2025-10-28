@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, Shield } from "lucide-react";
+import { NAV_ITEMS, LINKS } from "@/lib/constants";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,15 +15,6 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navItems = [
-    { name: "소개", href: "#hero" },
-    { name: "문제", href: "#problem" },
-    { name: "솔루션", href: "#solution" },
-    { name: "기능", href: "#features" },
-    { name: "기술", href: "#technology" },
-    { name: "로드맵", href: "#roadmap" },
-  ];
 
   return (
     <nav
@@ -42,7 +34,7 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
@@ -52,7 +44,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="https://github.com/sage-x-project/sage"
+              href={LINKS.GITHUB_REPO}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition-colors font-medium"
@@ -75,7 +67,7 @@ export default function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-white border-t">
           <div className="px-2 pt-2 pb-3 space-y-1">
-            {navItems.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
@@ -86,7 +78,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="https://github.com/sage-x-project/sage"
+              href={LINKS.GITHUB_REPO}
               target="_blank"
               rel="noopener noreferrer"
               className="block px-3 py-2 bg-indigo-600 text-white text-center rounded-md hover:bg-indigo-700"

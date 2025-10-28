@@ -1,4 +1,5 @@
 import { Github, Mail, FileText, ExternalLink } from "lucide-react";
+import { LINKS, CONTACT, EVENT } from "@/lib/constants";
 
 export default function CTA() {
   return (
@@ -20,7 +21,7 @@ export default function CTA() {
 
               <div className="space-y-4">
                 <a
-                  href="https://github.com/sage-x-project/sage"
+                  href={LINKS.GITHUB_REPO}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between w-full bg-gray-900 text-white px-6 py-4 rounded-xl hover:bg-gray-800 transition-colors group"
@@ -33,7 +34,9 @@ export default function CTA() {
                 </a>
 
                 <a
-                  href="#"
+                  href={LINKS.DOCUMENTATION}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center justify-between w-full bg-indigo-600 text-white px-6 py-4 rounded-xl hover:bg-indigo-700 transition-colors group"
                 >
                   <div className="flex items-center">
@@ -44,7 +47,7 @@ export default function CTA() {
                 </a>
 
                 <a
-                  href="mailto:contact@sage-project.io"
+                  href={`mailto:${CONTACT.EMAIL}`}
                   className="flex items-center justify-between w-full bg-purple-600 text-white px-6 py-4 rounded-xl hover:bg-purple-700 transition-colors group"
                 >
                   <div className="flex items-center">
@@ -80,13 +83,9 @@ export default function CTA() {
         {/* Conference Badge */}
         <div className="mt-12 text-center">
           <div className="inline-flex items-center space-x-2 bg-white px-6 py-3 rounded-full shadow-lg">
-            <span className="text-gray-700 font-semibold">
-              2025 오픈소스 개발자대회 출품작
-            </span>
+            <span className="text-gray-700 font-semibold">{EVENT.NAME}</span>
             <span className="text-gray-400">|</span>
-            <span className="text-gray-600">
-              과학기술정보통신부 · 정보통신산업진흥원 주최
-            </span>
+            <span className="text-gray-600">{EVENT.ORGANIZER}</span>
           </div>
         </div>
       </div>

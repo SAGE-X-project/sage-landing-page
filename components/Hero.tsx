@@ -1,6 +1,7 @@
 "use client";
 
 import { Shield, Lock, CheckCircle, ArrowRight } from "lucide-react";
+import { LINKS } from "@/lib/constants";
 
 export default function Hero() {
   return (
@@ -55,7 +56,7 @@ export default function Hero() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <a
-              href="https://github.com/sage-x-project/sage"
+              href={LINKS.GITHUB_REPO}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 text-lg font-medium text-white bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full hover:shadow-xl transform hover:-translate-y-1 transition-all"
