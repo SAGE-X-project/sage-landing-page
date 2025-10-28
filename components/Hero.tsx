@@ -1,7 +1,7 @@
 "use client";
 
 import { Shield, Lock, CheckCircle, ArrowRight } from "lucide-react";
-import { LINKS } from "@/lib/constants";
+import { LINKS, EVENT } from "@/lib/constants";
 
 export default function Hero() {
   return (
@@ -30,7 +30,7 @@ export default function Hero() {
           <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg mb-8">
             <Shield className="h-5 w-5 text-indigo-600" />
             <span className="text-sm font-semibold text-gray-700">
-              2025 오픈소스 개발자대회 출품작
+              {EVENT.NAME}
             </span>
           </div>
 

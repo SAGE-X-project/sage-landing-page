@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, Shield } from "lucide-react";
-import { NAV_ITEMS, LINKS } from "@/lib/constants";
+import { NAV_ITEMS, LINKS, PROJECT } from "@/lib/constants";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +28,7 @@ export default function Navbar() {
           <div className="flex items-center space-x-2">
             <Shield className="h-8 w-8 text-indigo-600" />
             <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              SAGE
+              {PROJECT.NAME}
             </span>
           </div>
 

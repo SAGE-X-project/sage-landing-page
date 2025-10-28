@@ -6,6 +6,12 @@ export const LINKS = {
   DOCUMENTATION: "https://github.com/sage-x-project/sage#readme",
   API_REFERENCE: "",
   EXAMPLES: "https://github.com/sage-x-project/sage/tree/main/examples",
+  ETHERSCAN_SEPOLIA_BASE: "https://sepolia.etherscan.io/address/",
+} as const;
+
+// On-chain Addresses
+export const ADDRESSES = {
+  SEPOLIA_SAGE_REGISTRY_V2: "0x487d09bf269641bb88ce2f851a878ee03b980109",
 } as const;
 
 // Contact Information

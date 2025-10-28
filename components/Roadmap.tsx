@@ -1,7 +1,59 @@
 import { Calendar, Rocket, Building, Globe } from "lucide-react";
+import type { ComponentType } from "react";
+
+type ColorKey = "blue" | "purple" | "pink";
+
+type Phase = {
+  icon: ComponentType<{ className?: string }>;
+  period: string;
+  title: string;
+  items: string[];
+  color: ColorKey;
+  status: string;
+};
 
 export default function Roadmap() {
-  const phases = [
+  const colorMap: Record<
+    ColorKey,
+    {
+      from: string;
+      to: string;
+      bg: string;
+      text600: string;
+      text700: string;
+      tagBg: string;
+      tagText: string;
+    }
+  > = {
+    blue: {
+      from: "from-blue-50",
+      to: "to-blue-100",
+      bg: "bg-blue-600",
+      text600: "text-blue-600",
+      text700: "text-blue-700",
+      tagBg: "bg-blue-200",
+      tagText: "text-blue-800",
+    },
+    purple: {
+      from: "from-purple-50",
+      to: "to-purple-100",
+      bg: "bg-purple-600",
+      text600: "text-purple-600",
+      text700: "text-purple-700",
+      tagBg: "bg-purple-200",
+      tagText: "text-purple-800",
+    },
+    pink: {
+      from: "from-pink-50",
+      to: "to-pink-100",
+      bg: "bg-pink-600",
+      text600: "text-pink-600",
+      text700: "text-pink-700",
+      tagBg: "bg-pink-200",
+      tagText: "text-pink-800",
+    },
+  };
+  const phases: Phase[] = [
     {
       icon: Rocket,
       period: "단기 (6개월)",
@@ -74,28 +126,32 @@ export default function Roadmap() {
                 }`}
               >
                 <div
-                  className={`relative z-20 bg-gradient-to-br from-${
-                    phase.color
-                  }-50 to-${
-                    phase.color
-                  }-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow ${
+                  className={`relative z-20 bg-gradient-to-br ${
+                    colorMap[phase.color].from
+                  } ${
+                    colorMap[phase.color].to
+                  } p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow ${
                     index % 2 === 0 ? "md:mr-8" : "md:ml-8"
                   }`}
                 >
                   {/* Icon */}
                   <div className="flex items-start mb-6">
                     <div
-                      className={`bg-${phase.color}-600 p-4 rounded-xl mr-4 flex-shrink-0`}
+                      className={`${
+                        colorMap[phase.color].bg
+                      } p-4 rounded-xl mr-4 flex-shrink-0`}
                     >
                       <phase.icon className="h-8 w-8 text-white" />
                     </div>
                     <div>
                       <div className="flex items-center space-x-3 mb-2">
                         <Calendar
-                          className={`h-5 w-5 text-${phase.color}-600`}
+                          className={`h-5 w-5 ${colorMap[phase.color].text600}`}
                         />
                         <span
-                          className={`text-sm font-semibold text-${phase.color}-700`}
+                          className={`text-sm font-semibold ${
+                            colorMap[phase.color].text700
+                          }`}
                         >
                           {phase.period}
                         </span>
@@ -104,7 +160,11 @@ export default function Roadmap() {
                         {phase.title}
                       </h3>
                       <span
-                        className={`inline-block px-3 py-1 bg-${phase.color}-200 text-${phase.color}-800 text-xs font-semibold rounded-full`}
+                        className={`inline-block px-3 py-1 ${
+                          colorMap[phase.color].tagBg
+                        } ${
+                          colorMap[phase.color].tagText
+                        } text-xs font-semibold rounded-full`}
                       >
                         {phase.status}
                       </span>
@@ -116,7 +176,9 @@ export default function Roadmap() {
                     {phase.items.map((item, i) => (
                       <li key={i} className="flex items-start">
                         <span
-                          className={`text-${phase.color}-600 mr-3 mt-1 flex-shrink-0`}
+                          className={`${
+                            colorMap[phase.color].text600
+                          } mr-3 mt-1 flex-shrink-0`}
                         >
                           ✓
                         </span>
@@ -132,9 +194,9 @@ export default function Roadmap() {
                     index % 2 === 0
                       ? "right-0 translate-x-1/2"
                       : "left-0 -translate-x-1/2"
-                  } w-6 h-6 bg-${
-                    phase.color
-                  }-600 rounded-full border-4 border-white shadow-lg`}
+                  } w-6 h-6 ${
+                    colorMap[phase.color].bg
+                  } rounded-full border-4 border-white shadow-lg`}
                 ></div>
               </div>
             ))}

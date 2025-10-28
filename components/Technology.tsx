@@ -1,4 +1,5 @@
 import { Code2, Shield, Database, GitBranch } from "lucide-react";
+import { LINKS, ADDRESSES } from "@/lib/constants";
 
 export default function Technology() {
   const techStack = {
@@ -112,15 +113,25 @@ export default function Technology() {
               ))}
             </div>
             <div className="mt-6 pt-6 border-t border-gray-200">
-              <div className="bg-green-50 p-3 rounded-lg">
+              <a
+                href={`${LINKS.ETHERSCAN_SEPOLIA_BASE}${ADDRESSES.SEPOLIA_SAGE_REGISTRY_V2}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-green-50 p-3 rounded-lg hover:bg-green-100 transition-colors"
+              >
                 <p className="text-sm text-gray-700">
-                  <span className="font-semibold">Sepolia Testnet 배포:</span>
+                  <span className="font-semibold">
+                    Sepolia Testnet 배포(SageRegistryV2):
+                  </span>
                   <br />
                   <code className="text-xs bg-white px-2 py-1 rounded mt-1 inline-block">
-                    0x487d...09BF
+                    {`${ADDRESSES.SEPOLIA_SAGE_REGISTRY_V2.slice(
+                      0,
+                      6
+                    )}...${ADDRESSES.SEPOLIA_SAGE_REGISTRY_V2.slice(-4)}`}
                   </code>
                 </p>
-              </div>
+              </a>
             </div>
           </div>
 
