@@ -1,10 +1,18 @@
 import { Shield, Lock, Database, CheckCircle } from "lucide-react";
+import type { ComponentType } from "react";
+
+type ColorKey = "indigo" | "purple" | "pink";
+
+interface SolutionItem {
+  icon: ComponentType<{ className?: string }>;
+  title: string;
+  description: string;
+  features: string[];
+  color: ColorKey;
+}
 
 export default function Solution() {
-  const colorClassMap: Record<
-    "indigo" | "purple" | "pink",
-    { from: string; to: string; bg: string; check: string }
-  > = {
+  const colorClassMap: Record<ColorKey, { from: string; to: string; bg: string; check: string }> = {
     indigo: {
       from: "from-indigo-50",
       to: "to-indigo-100",
@@ -24,7 +32,7 @@ export default function Solution() {
       check: "text-pink-600",
     },
   };
-  const solutions = [
+  const solutions: SolutionItem[] = [
     {
       icon: Lock,
       title: "RFC-9421 메시지 서명",
@@ -78,10 +86,16 @@ export default function Solution() {
           {solutions.map((solution, index) => (
             <div
               key={index}
-              className={`bg-gradient-to-br ${colorClassMap[solution.color].from} ${colorClassMap[solution.color].to} p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-2`}
+              className={`bg-gradient-to-br ${
+                colorClassMap[solution.color].from
+              } ${
+                colorClassMap[solution.color].to
+              } p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-2`}
             >
               <div
-                className={`${colorClassMap[solution.color].bg} w-16 h-16 rounded-2xl flex items-center justify-center mb-6`}
+                className={`${
+                  colorClassMap[solution.color].bg
+                } w-16 h-16 rounded-2xl flex items-center justify-center mb-6`}
               >
                 <solution.icon className="h-8 w-8 text-white" />
               </div>
@@ -92,7 +106,11 @@ export default function Solution() {
               <ul className="space-y-2">
                 {solution.features.map((feature, i) => (
                   <li key={i} className="flex items-start">
-                    <CheckCircle className={`h-5 w-5 ${colorClassMap[solution.color].check} mr-2 mt-0.5 flex-shrink-0`} />
+                    <CheckCircle
+                      className={`h-5 w-5 ${
+                        colorClassMap[solution.color].check
+                      } mr-2 mt-0.5 flex-shrink-0`}
+                    />
                     <span className="text-gray-700 text-sm">{feature}</span>
                   </li>
                 ))}
