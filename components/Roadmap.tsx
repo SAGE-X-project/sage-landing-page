@@ -62,10 +62,10 @@ export default function Roadmap() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical Line */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"></div>
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 -z-10 pointer-events-none"></div>
 
           {/* Phases */}
-          <div className="space-y-12">
+          <div className="relative z-10 space-y-12">
             {phases.map((phase, index) => (
               <div
                 key={index}
@@ -74,7 +74,9 @@ export default function Roadmap() {
                 }`}
               >
                 <div
-                  className={`bg-gradient-to-br from-${phase.color}-50 to-${
+                  className={`relative z-20 bg-gradient-to-br from-${
+                    phase.color
+                  }-50 to-${
                     phase.color
                   }-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow ${
                     index % 2 === 0 ? "md:mr-8" : "md:ml-8"

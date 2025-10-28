@@ -125,7 +125,7 @@ export default function Problem() {
                 AI Agent (SAGE)
               </div>
               <div className="text-sm text-indigo-600 font-semibold">
-                🎯 선제적 대응!
+                선제적 대응!
               </div>
             </div>
           </div>

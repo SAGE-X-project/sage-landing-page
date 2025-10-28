@@ -12,7 +12,10 @@ interface SolutionItem {
 }
 
 export default function Solution() {
-  const colorClassMap: Record<ColorKey, { from: string; to: string; bg: string; check: string }> = {
+  const colorClassMap: Record<
+    ColorKey,
+    { from: string; to: string; bg: string; check: string }
+  > = {
     indigo: {
       from: "from-indigo-50",
       to: "to-indigo-100",
