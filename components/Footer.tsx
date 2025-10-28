@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <Shield className="h-8 w-8 text-indigo-500" />
+              <Shield className="h-8 w-8 text-blue-500" />
               <span className="text-2xl font-bold text-white">{PROJECT.NAME}</span>
             </div>
             <p className="text-gray-400 mb-4">

@@ -33,9 +33,9 @@ export default function Architecture() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-2xl border-l-4 border-purple-500">
+          <div className="bg-gradient-to-r from-blue-50 to-cyan-50 p-6 rounded-2xl border-l-4 border-blue-500">
             <div className="flex items-start">
-              <Server className="h-6 w-6 text-purple-600 mt-1 mr-4 flex-shrink-0" />
+              <Server className="h-6 w-6 text-blue-600 mt-1 mr-4 flex-shrink-0" />
               <div className="flex-1">
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   SAGE Trust Layer
@@ -123,7 +123,7 @@ export default function Architecture() {
         {/* Plugin Architecture */}
         <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl">
           <div className="flex items-center mb-6">
-            <Box className="h-6 w-6 text-indigo-600 mr-3" />
+            <Box className="h-6 w-6 text-blue-600 mr-3" />
             <h3 className="text-2xl font-bold text-gray-900">
               플러그인 아키텍처
             </h3>

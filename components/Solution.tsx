@@ -11,7 +11,7 @@ export default function Solution() {
         "중간 서버의 조작 방지",
         "메시지 출처 검증",
       ],
-      color: "indigo",
+      color: "blue",
     },
     {
       icon: Shield,
@@ -22,7 +22,7 @@ export default function Solution() {
         "개인정보/금융정보 보호",
         "Forward Secrecy 보장",
       ],
-      color: "purple",
+      color: "sky",
     },
     {
       icon: Database,
@@ -33,7 +33,7 @@ export default function Solution() {
         "공개키 위변조 방지",
         "멀티체인 지원 (Ethereum, Kaia, Solana)",
       ],
-      color: "pink",
+      color: "cyan",
     },
   ];
 
@@ -94,7 +94,7 @@ export default function Solution() {
             </div>
             <div className="text-4xl text-gray-400">↓</div>
             <div className="text-center">
-              <div className="bg-gradient-to-r from-indigo-500 to-purple-500 p-6 rounded-xl shadow-lg mb-2 text-white">
+              <div className="bg-gradient-to-r from-blue-500 to-cyan-500 p-6 rounded-xl shadow-lg mb-2 text-white">
                 <p className="font-bold">SAGE Trust Layer</p>
                 <div className="text-xs mt-2 space-y-1">
                   <div>✓ Message Signing</div>

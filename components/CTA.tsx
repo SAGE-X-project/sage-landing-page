@@ -5,7 +5,7 @@ export default function CTA() {
   return (
     <section
       id="cta"
-      className="py-20 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50"
+      className="py-20 bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
@@ -37,7 +37,7 @@ export default function CTA() {
                   href={LINKS.DOCUMENTATION}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-between w-full bg-indigo-600 text-white px-6 py-4 rounded-xl hover:bg-indigo-700 transition-colors group"
+                  className="flex items-center justify-between w-full bg-blue-600 text-white px-6 py-4 rounded-xl hover:bg-blue-700 transition-colors group"
                 >
                   <div className="flex items-center">
                     <FileText className="h-6 w-6 mr-3" />
@@ -48,7 +48,7 @@ export default function CTA() {
 
                 <a
                   href={`mailto:${CONTACT.EMAIL}`}
-                  className="flex items-center justify-between w-full bg-purple-600 text-white px-6 py-4 rounded-xl hover:bg-purple-700 transition-colors group"
+                  className="flex items-center justify-between w-full bg-cyan-600 text-white px-6 py-4 rounded-xl hover:bg-cyan-700 transition-colors group"
                 >
                   <div className="flex items-center">
                     <Mail className="h-6 w-6 mr-3" />
@@ -60,7 +60,7 @@ export default function CTA() {
             </div>
 
             {/* Right Side - Stats */}
-            <div className="bg-gradient-to-br from-indigo-600 to-purple-600 p-12 flex flex-col justify-center text-white">
+            <div className="bg-gradient-to-br from-blue-600 to-cyan-600 p-12 flex flex-col justify-center text-white">
               <h3 className="text-2xl font-bold mb-8">프로젝트 현황</h3>
               <div className="space-y-6">
                 <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl">

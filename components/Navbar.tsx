@@ -26,8 +26,8 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <Shield className="h-8 w-8 text-indigo-600" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+            <Shield className="h-8 w-8 text-blue-600" />
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
               SAGE
             </span>
           </div>
@@ -38,7 +38,7 @@ export default function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-indigo-600 transition-colors font-medium"
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
               >
                 {item.name}
               </a>
@@ -47,7 +47,7 @@ export default function Navbar() {
               href={LINKS.GITHUB_REPO}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-indigo-600 text-white px-6 py-2 rounded-full hover:bg-indigo-700 transition-colors font-medium"
+              className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors font-medium"
             >
               GitHub
             </a>
@@ -71,7 +71,7 @@ export default function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 text-gray-700 hover:text-indigo-600 hover:bg-gray-50 rounded-md"
+                className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
@@ -81,7 +81,7 @@ export default function Navbar() {
               href={LINKS.GITHUB_REPO}
               target="_blank"
               rel="noopener noreferrer"
-              className="block px-3 py-2 bg-indigo-600 text-white text-center rounded-md hover:bg-indigo-700"
+              className="block px-3 py-2 bg-blue-600 text-white text-center rounded-md hover:bg-blue-700"
             >
               GitHub
             </a>

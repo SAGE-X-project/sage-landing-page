@@ -27,7 +27,7 @@ export default function Roadmap() {
         "주요 AI 플랫폼 연동 (OpenAI, Google, Anthropic)",
         "기업 파트너십 체결",
       ],
-      color: "purple",
+      color: "sky",
       status: "계획됨",
     },
     {
@@ -41,7 +41,7 @@ export default function Roadmap() {
         "글로벌 Agent 생태계 구축",
         "국제 컨퍼런스 개최",
       ],
-      color: "pink",
+      color: "cyan",
       status: "비전",
     },
   ];
@@ -62,7 +62,7 @@ export default function Roadmap() {
         {/* Timeline */}
         <div className="relative">
           {/* Vertical Line */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"></div>
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 via-sky-500 to-cyan-500"></div>
 
           {/* Phases */}
           <div className="space-y-12">
@@ -140,7 +140,7 @@ export default function Roadmap() {
         </div>
 
         {/* Vision Statement */}
-        <div className="mt-16 bg-gradient-to-r from-indigo-600 to-purple-600 p-8 md:p-12 rounded-2xl text-white text-center">
+        <div className="mt-16 bg-gradient-to-r from-blue-600 to-cyan-600 p-8 md:p-12 rounded-2xl text-white text-center">
           <h3 className="text-3xl font-bold mb-4">우리의 비전</h3>
           <p className="text-xl mb-6 opacity-90">
             HTTP에 HTTPS가 필요했듯이, AI Agent에는 SAGE가 필요합니다

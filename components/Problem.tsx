@@ -27,8 +27,8 @@ export default function Problem() {
       icon: TrendingUp,
       title: "Agent 급증",
       description: "OpenAI, Google 등 누구나 Agent 생성 가능",
-      color: "text-purple-600",
-      bgColor: "bg-purple-100",
+      color: "text-blue-600",
+      bgColor: "bg-blue-100",
     },
   ];
 
@@ -117,14 +117,14 @@ export default function Problem() {
               </div>
               <div className="text-sm text-gray-600">수많은 피해 후 규제</div>
             </div>
-            <div className="bg-gradient-to-br from-indigo-50 to-purple-50 p-6 rounded-xl shadow-md border-2 border-indigo-300">
-              <div className="text-3xl font-bold text-indigo-600 mb-2">
+        <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-xl shadow-md border-2 border-blue-300">
+          <div className="text-3xl font-bold text-blue-600 mb-2">
                 2025
               </div>
               <div className="font-semibold text-gray-900 mb-2">
                 AI Agent (SAGE)
               </div>
-              <div className="text-sm text-indigo-600 font-semibold">
+          <div className="text-sm text-blue-600 font-semibold">
                 🎯 선제적 대응!
               </div>
             </div>

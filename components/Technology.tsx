@@ -67,8 +67,8 @@ export default function Technology() {
           {/* Languages */}
           <div className="bg-white p-8 rounded-2xl shadow-lg">
             <div className="flex items-center mb-6">
-              <div className="bg-purple-100 p-3 rounded-xl mr-4">
-                <Code2 className="h-6 w-6 text-purple-600" />
+              <div className="bg-sky-100 p-3 rounded-xl mr-4">
+                <Code2 className="h-6 w-6 text-sky-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">
                 프로그래밍 언어
@@ -127,8 +127,8 @@ export default function Technology() {
           {/* Crypto */}
           <div className="bg-white p-8 rounded-2xl shadow-lg">
             <div className="flex items-center mb-6">
-              <div className="bg-pink-100 p-3 rounded-xl mr-4">
-                <Shield className="h-6 w-6 text-pink-600" />
+              <div className="bg-cyan-100 p-3 rounded-xl mr-4">
+                <Shield className="h-6 w-6 text-cyan-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">
                 암호화 알고리즘
@@ -148,27 +148,27 @@ export default function Technology() {
         </div>
 
         {/* Open Source */}
-        <div className="mt-12 bg-gradient-to-r from-indigo-50 to-purple-50 p-8 rounded-2xl">
+        <div className="mt-12 bg-gradient-to-r from-blue-50 to-cyan-50 p-8 rounded-2xl">
           <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
             오픈소스 라이선스
           </h3>
           <div className="grid md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold text-indigo-600 mb-2">
+              <div className="text-3xl font-bold text-blue-600 mb-2">
                 LGPL-v3
               </div>
               <div className="text-sm text-gray-600">SAGE Core</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">MIT</div>
+              <div className="text-3xl font-bold text-sky-600 mb-2">MIT</div>
               <div className="text-sm text-gray-600">Smart Contracts</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-pink-600 mb-2">BSD-3</div>
+              <div className="text-3xl font-bold text-cyan-600 mb-2">BSD-3</div>
               <div className="text-sm text-gray-600">Dependencies</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">
+              <div className="text-3xl font-bold text-teal-600 mb-2">
                 Apache-2.0
               </div>
               <div className="text-sm text-gray-600">CLI Tools</div>

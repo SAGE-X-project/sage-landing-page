@@ -90,8 +90,8 @@ export default function Features() {
               key={index}
               className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
             >
-              <div className="bg-gradient-to-br from-indigo-100 to-purple-100 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
-                <feature.icon className="h-7 w-7 text-indigo-600" />
+              <div className="bg-gradient-to-br from-blue-100 to-cyan-100 w-14 h-14 rounded-xl flex items-center justify-center mb-4">
+                <feature.icon className="h-7 w-7 text-blue-600" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">
                 {feature.title}
@@ -103,7 +103,7 @@ export default function Features() {
                     key={i}
                     className="text-sm text-gray-500 flex items-start"
                   >
-                    <span className="text-indigo-600 mr-2">•</span>
+                    <span className="text-blue-600 mr-2">•</span>
                     {detail}
                   </li>
                 ))}
