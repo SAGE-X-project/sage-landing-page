@@ -3,16 +3,14 @@
 // External Links
 export const LINKS = {
   GITHUB_REPO: "https://github.com/sage-x-project/sage",
-  GITHUB_LANDING: "https://github.com/SAGE-X-project/sage-landing-page",
   DOCUMENTATION: "https://github.com/sage-x-project/sage#readme",
-  API_REFERENCE: "https://github.com/sage-x-project/sage/wiki",
+  API_REFERENCE: "",
   EXAMPLES: "https://github.com/sage-x-project/sage/tree/main/examples",
 } as const;
 
 // Contact Information
 export const CONTACT = {
-  EMAIL: "contact@sage-project.io",
-  GITHUB_ISSUES: "https://github.com/sage-x-project/sage/issues",
+  EMAIL: "",
 } as const;
 
 // Social Media (if needed in the future)
