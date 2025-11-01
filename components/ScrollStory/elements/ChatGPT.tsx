@@ -137,6 +137,38 @@ export default function ChatGPT({ typingProgress, messageSubmitted }: ChatGPTPro
   );
 }
 
+// Component for individual character animation
+function AnimatedChar({
+  char,
+  index,
+  charCount
+}: {
+  char: string;
+  index: number;
+  charCount: MotionValue<number>;
+}) {
+  const opacity = useTransform(
+    charCount,
+    [index, index + 0.1],
+    [0, 1]
+  );
+  const display = useTransform(
+    charCount,
+    (count) => count > index ? "inline" : "none"
+  );
+
+  return (
+    <motion.span
+      style={{
+        opacity,
+        display: display as any,
+      }}
+    >
+      {char}
+    </motion.span>
+  );
+}
+
 // Separate component for typed text to avoid hook issues
 function TypedText({ text, progress }: { text: string; progress: MotionValue<number> }) {
   const chars = text.split("");
@@ -144,29 +176,9 @@ function TypedText({ text, progress }: { text: string; progress: MotionValue<num
 
   return (
     <span className="relative inline-block">
-      {chars.map((char, index) => {
-        const opacity = useTransform(
-          charCount,
-          [index, index + 0.1],
-          [0, 1]
-        );
-        const display = useTransform(
-          charCount,
-          (count) => count > index ? "inline" : "none"
-        );
-
-        return (
-          <motion.span
-            key={index}
-            style={{
-              opacity,
-              display: display as any,
-            }}
-          >
-            {char}
-          </motion.span>
-        );
-      })}
+      {chars.map((char, index) => (
+        <AnimatedChar key={index} char={char} index={index} charCount={charCount} />
+      ))}
       {/* Blinking cursor that follows the typed text */}
       <motion.span
         className="inline-block w-0.5 h-4 bg-white ml-0.5 align-middle"
