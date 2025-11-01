@@ -12,29 +12,33 @@ export default function Problem() {
       icon: AlertTriangle,
       title: "TLS/HTTPS의 한계",
       description: "구간별 암호화로 중간 서버에서 변조 가능",
-      color: "text-red-600",
-      bgColor: "bg-red-100",
+      color: "text-white",
+      bgColor: "bg-gradient-to-br from-red-500 to-red-700",
+      iconBg: "bg-white/20",
     },
     {
       icon: Users,
       title: "Agent Card 불충분",
       description: "메타데이터만 제공, 신뢰성 검증 불가능",
-      color: "text-orange-600",
-      bgColor: "bg-orange-100",
+      color: "text-white",
+      bgColor: "bg-gradient-to-br from-orange-500 to-orange-700",
+      iconBg: "bg-white/20",
     },
     {
       icon: DollarSign,
       title: "금융 자산 위협",
       description: "결제 메시지 변조, 송금 정보 위변조 가능",
-      color: "text-amber-600",
-      bgColor: "bg-amber-100",
+      color: "text-white",
+      bgColor: "bg-gradient-to-br from-amber-500 to-amber-700",
+      iconBg: "bg-white/20",
     },
     {
       icon: TrendingUp,
       title: "Agent 급증",
       description: "OpenAI, Google 등 누구나 Agent 생성 가능",
-      color: "text-blue-600",
-      bgColor: "bg-blue-100",
+      color: "text-white",
+      bgColor: "bg-gradient-to-br from-purple-500 to-purple-700",
+      iconBg: "bg-white/20",
     },
   ];
 
@@ -52,11 +56,14 @@ export default function Problem() {
       >
         {/* Section Header */}
         <motion.div className="text-center mb-12 sm:mb-16" variants={fadeInUp}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 px-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 px-4 tracking-tight">
             다가오는 위기
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            AI Agent 시대의 보안 위협은 실재하며 시급합니다
+          <p className="text-xl sm:text-2xl md:text-3xl text-gray-700 font-bold max-w-4xl mx-auto px-4 mb-4">
+            AI Agent 시대의 보안 위협은
+          </p>
+          <p className="text-xl sm:text-2xl md:text-3xl bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent font-black max-w-4xl mx-auto px-4">
+            실재하며 시급합니다
           </p>
         </motion.div>
 
@@ -68,19 +75,27 @@ export default function Problem() {
           {threats.map((threat, index) => (
             <motion.div
               key={index}
-              className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+              className={`${threat.bgColor} p-6 sm:p-8 rounded-3xl shadow-2xl hover:shadow-3xl transition-all overflow-hidden relative`}
               variants={fadeInUp}
-              whileHover={{ scale: 1.02, y: -5 }}
+              whileHover={{ scale: 1.05, y: -8 }}
             >
-              <div
-                className={`${threat.bgColor} w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-4`}
-              >
-                <threat.icon className={`h-7 w-7 sm:h-8 sm:w-8 ${threat.color}`} />
+              {/* Decorative background pattern */}
+              <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
+                <div className="absolute top-4 right-4 w-16 h-16 border-4 border-white rounded-full" />
+                <div className="absolute top-8 right-8 w-8 h-8 border-4 border-white rotate-45" />
               </div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
-                {threat.title}
-              </h3>
-              <p className="text-sm sm:text-base text-gray-600">{threat.description}</p>
+
+              <div className="relative z-10">
+                <div
+                  className={`${threat.iconBg} backdrop-blur-sm w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center mb-6`}
+                >
+                  <threat.icon className={`h-8 w-8 sm:h-10 sm:w-10 ${threat.color}`} />
+                </div>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-3 tracking-tight">
+                  {threat.title}
+                </h3>
+                <p className="text-base sm:text-lg text-white/90 font-medium leading-relaxed">{threat.description}</p>
+              </div>
             </motion.div>
           ))}
         </motion.div>

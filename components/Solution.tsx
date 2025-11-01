@@ -20,25 +20,28 @@ export default function Solution() {
   const { ref, isInView } = useScrollAnimation();
   const colorClassMap: Record<
     ColorKey,
-    { from: string; to: string; bg: string; check: string }
+    { from: string; to: string; bg: string; check: string; iconBg: string }
   > = {
     blue: {
-      from: "from-blue-50",
-      to: "to-blue-100",
-      bg: "bg-blue-600",
-      check: "text-blue-600",
+      from: "from-blue-500",
+      to: "to-blue-700",
+      bg: "bg-white/20",
+      check: "text-white",
+      iconBg: "backdrop-blur-sm",
     },
     sky: {
-      from: "from-sky-50",
-      to: "to-sky-100",
-      bg: "bg-sky-600",
-      check: "text-sky-600",
+      from: "from-sky-500",
+      to: "to-sky-700",
+      bg: "bg-white/20",
+      check: "text-white",
+      iconBg: "backdrop-blur-sm",
     },
     cyan: {
-      from: "from-cyan-50",
-      to: "to-cyan-100",
-      bg: "bg-cyan-600",
-      check: "text-cyan-600",
+      from: "from-cyan-500",
+      to: "to-cyan-700",
+      bg: "bg-white/20",
+      check: "text-white",
+      iconBg: "backdrop-blur-sm",
     },
   };
   const solutions: SolutionItem[] = [
@@ -88,11 +91,14 @@ export default function Solution() {
       >
         {/* Section Header */}
         <motion.div className="text-center mb-12 sm:mb-16" variants={fadeInUp}>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 px-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-6 px-4 tracking-tight">
             SAGE의 해결책
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            표준 기반 Trust Layer로 AI Agent 통신을 안전하게 보호합니다
+          <p className="text-xl sm:text-2xl md:text-3xl text-gray-700 font-bold max-w-4xl mx-auto px-4 mb-4">
+            표준 기반 Trust Layer로
+          </p>
+          <p className="text-xl sm:text-2xl md:text-3xl bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-transparent font-black max-w-4xl mx-auto px-4">
+            AI Agent 통신을 안전하게 보호합니다
           </p>
         </motion.div>
 
@@ -108,33 +114,41 @@ export default function Solution() {
                 colorClassMap[solution.color].from
               } ${
                 colorClassMap[solution.color].to
-              } p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all`}
+              } p-6 sm:p-8 rounded-3xl shadow-2xl hover:shadow-3xl transition-all overflow-hidden relative`}
               variants={fadeInUp}
-              whileHover={{ y: -8, scale: 1.02 }}
+              whileHover={{ y: -10, scale: 1.03 }}
             >
-              <div
-                className={`${
-                  colorClassMap[solution.color].bg
-                } w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-4 sm:mb-6`}
-              >
-                <solution.icon className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
+              {/* Decorative background pattern */}
+              <div className="absolute bottom-0 left-0 w-40 h-40 opacity-10">
+                <div className="absolute bottom-4 left-4 w-20 h-20 border-4 border-white rounded-full" />
+                <div className="absolute bottom-10 left-10 w-10 h-10 border-4 border-white" />
               </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3">
-                {solution.title}
-              </h3>
-              <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6">{solution.description}</p>
-              <ul className="space-y-2">
-                {solution.features.map((feature, i) => (
-                  <li key={i} className="flex items-start">
-                    <CheckCircle
-                      className={`h-4 w-4 sm:h-5 sm:w-5 ${
-                        colorClassMap[solution.color].check
-                      } mr-2 mt-0.5 flex-shrink-0`}
-                    />
-                    <span className="text-gray-700 text-xs sm:text-sm">{feature}</span>
-                  </li>
-                ))}
-              </ul>
+
+              <div className="relative z-10">
+                <div
+                  className={`${
+                    colorClassMap[solution.color].bg
+                  } ${colorClassMap[solution.color].iconBg} w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center mb-6`}
+                >
+                  <solution.icon className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
+                </div>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white mb-4 tracking-tight">
+                  {solution.title}
+                </h3>
+                <p className="text-base sm:text-lg text-white/90 font-medium mb-6 leading-relaxed">{solution.description}</p>
+                <ul className="space-y-3">
+                  {solution.features.map((feature, i) => (
+                    <li key={i} className="flex items-start">
+                      <CheckCircle
+                        className={`h-5 w-5 sm:h-6 sm:w-6 ${
+                          colorClassMap[solution.color].check
+                        } mr-3 mt-0.5 flex-shrink-0`}
+                      />
+                      <span className="text-white font-medium text-sm sm:text-base">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </motion.div>
           ))}
         </motion.div>

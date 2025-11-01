@@ -27,11 +27,14 @@ export default function CTA() {
               className="p-6 sm:p-8 md:p-12 flex flex-col justify-center"
               variants={fadeInLeft}
             >
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                지금 시작하세요
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 tracking-tight leading-tight">
+                지금<br className="sm:hidden" /> 시작하세요
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8">
-                SAGE로 안전한 AI Agent를 만들어보세요
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-700 font-bold mb-8">
+                SAGE로 안전한
+              </p>
+              <p className="text-lg sm:text-xl md:text-2xl bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent font-black mb-8">
+                AI Agent를 만들어보세요
               </p>
 
               <div className="space-y-4">
