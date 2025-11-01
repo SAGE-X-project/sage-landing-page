@@ -77,7 +77,7 @@ export default function Problem() {
           <div className="space-y-4">
             <div>
               <p className="font-semibold text-gray-900">
-                "A Survey of LLM-Driven AI Agent Communication"
+                &quot;A Survey of LLM-Driven AI Agent Communication&quot;
               </p>
               <p className="text-gray-600 text-sm">
                 AI Agent 통신 프로토콜의 보안 취약점 분석 및 방어 대책 필요성
@@ -86,7 +86,7 @@ export default function Problem() {
             </div>
             <div>
               <p className="font-semibold text-gray-900">
-                "The Dark Side of LLMs: Agent-based Attacks"
+                &quot;The Dark Side of LLMs: Agent-based Attacks&quot;
               </p>
               <p className="text-gray-600 text-sm">
                 AI Agent를 통한 시스템 장악 공격 가능성 실증
