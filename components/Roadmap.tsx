@@ -1,6 +1,13 @@
+"use client";
+
 import { Calendar, Rocket, Building, Globe } from "lucide-react";
+import { motion } from "framer-motion";
+import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer } from "@/lib/animations";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Roadmap() {
+  const { ref, isInView } = useScrollAnimation();
+
   const phases = [
     {
       icon: Rocket,
@@ -13,7 +20,13 @@ export default function Roadmap() {
         "PyPI, npm, Maven 패키지 등록",
         "모바일 Agent 앱 개발",
       ],
-      color: "blue",
+      colorClasses: {
+        gradient: "from-blue-50 to-blue-100",
+        bg: "bg-blue-600",
+        text: "text-blue-600",
+        badge: "bg-blue-200 text-blue-800",
+        border: "border-blue-600",
+      },
       status: "진행 중",
     },
     {
@@ -27,7 +40,13 @@ export default function Roadmap() {
         "주요 AI 플랫폼 연동 (OpenAI, Google, Anthropic)",
         "기업 파트너십 체결",
       ],
-      color: "sky",
+      colorClasses: {
+        gradient: "from-sky-50 to-sky-100",
+        bg: "bg-sky-600",
+        text: "text-sky-600",
+        badge: "bg-sky-200 text-sky-800",
+        border: "border-sky-600",
+      },
       status: "계획됨",
     },
     {
@@ -41,70 +60,79 @@ export default function Roadmap() {
         "글로벌 Agent 생태계 구축",
         "국제 컨퍼런스 개최",
       ],
-      color: "cyan",
+      colorClasses: {
+        gradient: "from-cyan-50 to-cyan-100",
+        bg: "bg-cyan-600",
+        text: "text-cyan-600",
+        badge: "bg-cyan-200 text-cyan-800",
+        border: "border-cyan-600",
+      },
       status: "비전",
     },
   ];
 
   return (
-    <section id="roadmap" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="roadmap" className="py-12 sm:py-16 md:py-20 bg-white">
+      <motion.div
+        ref={ref}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={staggerContainer}
+      >
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <motion.div className="text-center mb-12 sm:mb-16" variants={fadeInUp}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 px-4">
             로드맵
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             안전한 AI Agent 생태계를 향한 여정
           </p>
-        </div>
+        </motion.div>
 
         {/* Timeline */}
         <div className="relative">
           {/* Vertical Line */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 via-sky-500 to-cyan-500 -z-10 pointer-events-none"></div>
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-blue-500 via-sky-500 to-cyan-500"></div>
 
           {/* Phases */}
-          <div className="relative z-10 space-y-12">
+          <div className="relative z-10 space-y-8 sm:space-y-12">
             {phases.map((phase, index) => (
-              <div
+              <motion.div
                 key={index}
                 className={`relative ${
                   index % 2 === 0 ? "md:pr-1/2" : "md:pl-1/2 md:ml-auto"
                 }`}
+                variants={index % 2 === 0 ? fadeInLeft : fadeInRight}
               >
                 <div
-                  className={`relative z-20 bg-gradient-to-br from-${
-                    phase.color
-                  }-50 to-${
-                    phase.color
-                  }-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow ${
+                  className={`relative z-20 bg-gradient-to-br ${phase.colorClasses.gradient} p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow ${
                     index % 2 === 0 ? "md:mr-8" : "md:ml-8"
                   }`}
                 >
                   {/* Icon */}
-                  <div className="flex items-start mb-6">
+                  <div className="flex items-start mb-4 sm:mb-6">
                     <div
-                      className={`bg-${phase.color}-600 p-4 rounded-xl mr-4 flex-shrink-0`}
+                      className={`${phase.colorClasses.bg} p-3 sm:p-4 rounded-xl mr-3 sm:mr-4 flex-shrink-0`}
                     >
-                      <phase.icon className="h-8 w-8 text-white" />
+                      <phase.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                     </div>
                     <div>
-                      <div className="flex items-center space-x-3 mb-2">
+                      <div className="flex items-center space-x-2 sm:space-x-3 mb-2 flex-wrap">
                         <Calendar
-                          className={`h-5 w-5 text-${phase.color}-600`}
+                          className={`h-4 w-4 sm:h-5 sm:w-5 ${phase.colorClasses.text}`}
                         />
                         <span
-                          className={`text-sm font-semibold text-${phase.color}-700`}
+                          className={`text-xs sm:text-sm font-semibold ${phase.colorClasses.text}`}
                         >
                           {phase.period}
                         </span>
                       </div>
-                      <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">
                         {phase.title}
                       </h3>
                       <span
-                        className={`inline-block px-3 py-1 bg-${phase.color}-200 text-${phase.color}-800 text-xs font-semibold rounded-full`}
+                        className={`inline-block px-2 sm:px-3 py-1 ${phase.colorClasses.badge} text-xs font-semibold rounded-full`}
                       >
                         {phase.status}
                       </span>
@@ -112,15 +140,15 @@ export default function Roadmap() {
                   </div>
 
                   {/* Items */}
-                  <ul className="space-y-3">
+                  <ul className="space-y-2 sm:space-y-3">
                     {phase.items.map((item, i) => (
                       <li key={i} className="flex items-start">
                         <span
-                          className={`text-${phase.color}-600 mr-3 mt-1 flex-shrink-0`}
+                          className={`${phase.colorClasses.text} mr-2 sm:mr-3 mt-0.5 sm:mt-1 flex-shrink-0`}
                         >
                           ✓
                         </span>
-                        <span className="text-gray-700">{item}</span>
+                        <span className="text-gray-700 text-sm sm:text-base">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -128,30 +156,33 @@ export default function Roadmap() {
 
                 {/* Timeline Dot */}
                 <div
-                  className={`hidden md:block absolute top-8 ${
+                  className={`hidden md:block absolute top-6 sm:top-8 ${
                     index % 2 === 0
                       ? "right-0 translate-x-1/2"
                       : "left-0 -translate-x-1/2"
-                  } w-6 h-6 bg-${
-                    phase.color
-                  }-600 rounded-full border-4 border-white shadow-lg`}
+                  } w-5 h-5 sm:w-6 sm:h-6 ${
+                    phase.colorClasses.bg
+                  } rounded-full border-4 border-white shadow-lg`}
                 ></div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
         {/* Vision Statement */}
-        <div className="mt-16 bg-gradient-to-r from-blue-600 to-cyan-600 p-8 md:p-12 rounded-2xl text-white text-center">
-          <h3 className="text-3xl font-bold mb-4">우리의 비전</h3>
-          <p className="text-xl mb-6 opacity-90">
+        <motion.div
+          className="mt-12 sm:mt-16 bg-gradient-to-r from-blue-600 to-cyan-600 p-6 sm:p-8 md:p-12 rounded-2xl text-white text-center"
+          variants={fadeInUp}
+        >
+          <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">우리의 비전</h3>
+          <p className="text-lg sm:text-xl mb-4 sm:mb-6 opacity-90">
             HTTP에 HTTPS가 필요했듯이, AI Agent에는 SAGE가 필요합니다
           </p>
-          <p className="text-lg opacity-80 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg opacity-80 max-w-3xl mx-auto">
             SAGE와 함께, 안전한 AI Agent 시대를 만들어갑니다
           </p>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

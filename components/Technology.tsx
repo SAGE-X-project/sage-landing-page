@@ -1,7 +1,13 @@
+"use client";
+
 import { Code2, Shield, Database, GitBranch } from "lucide-react";
+import { motion } from "framer-motion";
 import { LINKS, ADDRESSES } from "@/lib/constants";
+import { fadeInUp, staggerContainer } from "@/lib/animations";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export default function Technology() {
+  const { ref, isInView } = useScrollAnimation();
   const techStack = {
     standards: [
       { name: "RFC-9421", desc: "HTTP Message Signatures" },
@@ -31,22 +37,28 @@ export default function Technology() {
   return (
     <section
       id="technology"
-      className="py-20 bg-gradient-to-b from-gray-50 to-white"
+      className="py-12 sm:py-16 md:py-20 bg-gradient-to-b from-gray-50 to-white"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div
+        ref={ref}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={staggerContainer}
+      >
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <motion.div className="text-center mb-12 sm:mb-16" variants={fadeInUp}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 px-4">
             기술 스택
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             검증된 표준과 최신 기술의 조합
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <motion.div className="grid sm:grid-cols-2 gap-6 sm:gap-8" variants={staggerContainer}>
           {/* Standards */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg">
+          <motion.div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg" variants={fadeInUp} whileHover={{ y: -4 }}>
             <div className="flex items-center mb-6">
               <div className="bg-blue-100 p-3 rounded-xl mr-4">
                 <GitBranch className="h-6 w-6 text-blue-600" />
@@ -63,10 +75,10 @@ export default function Technology() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Languages */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg">
+          <motion.div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg" variants={fadeInUp} whileHover={{ y: -4 }}>
             <div className="flex items-center mb-6">
               <div className="bg-sky-100 p-3 rounded-xl mr-4">
                 <Code2 className="h-6 w-6 text-sky-600" />
@@ -90,10 +102,10 @@ export default function Technology() {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Blockchain */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg">
+          <motion.div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg" variants={fadeInUp} whileHover={{ y: -4 }}>
             <div className="flex items-center mb-6">
               <div className="bg-green-100 p-3 rounded-xl mr-4">
                 <Database className="h-6 w-6 text-green-600" />
@@ -133,10 +145,10 @@ export default function Technology() {
                 </p>
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Crypto */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg">
+          <motion.div className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg" variants={fadeInUp} whileHover={{ y: -4 }}>
             <div className="flex items-center mb-6">
               <div className="bg-cyan-100 p-3 rounded-xl mr-4">
                 <Shield className="h-6 w-6 text-cyan-600" />
@@ -155,15 +167,15 @@ export default function Technology() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Open Source */}
-        <div className="mt-12 bg-gradient-to-r from-blue-50 to-cyan-50 p-8 rounded-2xl">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+        <motion.div className="mt-8 sm:mt-12 bg-gradient-to-r from-blue-50 to-cyan-50 p-6 sm:p-8 rounded-2xl" variants={fadeInUp}>
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 text-center px-4">
             오픈소스 라이선스
           </h3>
-          <div className="grid md:grid-cols-4 gap-6 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-center">
             <div>
               <div className="text-3xl font-bold text-blue-600 mb-2">
                 LGPL-v3
@@ -185,8 +197,8 @@ export default function Technology() {
               <div className="text-sm text-gray-600">CLI Tools</div>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

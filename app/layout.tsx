@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
+import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { PROJECT } from "@/lib/constants";
+import SmoothScroll from "@/components/SmoothScroll";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-space-grotesk",
+  weight: ["300", "400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: `${PROJECT.NAME} - ${PROJECT.FULL_NAME}`,
@@ -17,8 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className="scroll-smooth">
-      <body className="antialiased">{children}</body>
+    <html lang="ko" className={spaceGrotesk.variable}>
+      <body className={`${spaceGrotesk.className} antialiased`}>
+        <SmoothScroll />
+        {children}
+      </body>
     </html>
   );
 }

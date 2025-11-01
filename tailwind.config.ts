@@ -12,6 +12,17 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        sans: ["var(--font-space-grotesk)", "Space Grotesk", "system-ui", "sans-serif"],
+      },
+      fontSize: {
+        'hero': ['clamp(2.5rem, 5vw, 5rem)', { lineHeight: '1.1', letterSpacing: '-0.03em', fontWeight: '800' }],
+        'display': ['clamp(2rem, 4vw, 3.5rem)', { lineHeight: '1.2', letterSpacing: '-0.02em', fontWeight: '700' }],
+      },
+      letterSpacing: {
+        tighter: '-0.03em',
+        tight: '-0.02em',
+      },
       animation: {
         gradient: "gradient 8s linear infinite",
         float: "float 6s ease-in-out infinite",

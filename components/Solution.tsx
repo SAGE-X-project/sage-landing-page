@@ -1,5 +1,10 @@
+"use client";
+
 import { Shield, Lock, Database, CheckCircle } from "lucide-react";
 import type { ComponentType } from "react";
+import { motion } from "framer-motion";
+import { fadeInUp, staggerContainer } from "@/lib/animations";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 type ColorKey = "blue" | "sky" | "cyan";
 
@@ -12,6 +17,7 @@ interface SolutionItem {
 }
 
 export default function Solution() {
+  const { ref, isInView } = useScrollAnimation();
   const colorClassMap: Record<
     ColorKey,
     { from: string; to: string; bg: string; check: string }
@@ -72,94 +78,117 @@ export default function Solution() {
   ];
 
   return (
-    <section id="solution" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="solution" className="py-12 sm:py-16 md:py-20 bg-white">
+      <motion.div
+        ref={ref}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        variants={staggerContainer}
+      >
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        <motion.div className="text-center mb-12 sm:mb-16" variants={fadeInUp}>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 px-4">
             SAGE의 해결책
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             표준 기반 Trust Layer로 AI Agent 통신을 안전하게 보호합니다
           </p>
-        </div>
+        </motion.div>
 
         {/* Solutions Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <motion.div
+          className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16"
+          variants={staggerContainer}
+        >
           {solutions.map((solution, index) => (
-            <div
+            <motion.div
               key={index}
               className={`bg-gradient-to-br ${
                 colorClassMap[solution.color].from
               } ${
                 colorClassMap[solution.color].to
-              } p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-2`}
+              } p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all`}
+              variants={fadeInUp}
+              whileHover={{ y: -8, scale: 1.02 }}
             >
               <div
                 className={`${
                   colorClassMap[solution.color].bg
-                } w-16 h-16 rounded-2xl flex items-center justify-center mb-6`}
+                } w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-4 sm:mb-6`}
               >
-                <solution.icon className="h-8 w-8 text-white" />
+                <solution.icon className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-3">
                 {solution.title}
               </h3>
-              <p className="text-gray-700 mb-6">{solution.description}</p>
+              <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6">{solution.description}</p>
               <ul className="space-y-2">
                 {solution.features.map((feature, i) => (
                   <li key={i} className="flex items-start">
                     <CheckCircle
-                      className={`h-5 w-5 ${
+                      className={`h-4 w-4 sm:h-5 sm:w-5 ${
                         colorClassMap[solution.color].check
                       } mr-2 mt-0.5 flex-shrink-0`}
                     />
-                    <span className="text-gray-700 text-sm">{feature}</span>
+                    <span className="text-gray-700 text-xs sm:text-sm">{feature}</span>
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Architecture Diagram */}
-        <div className="bg-gradient-to-br from-gray-50 to-gray-100 p-8 rounded-2xl">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
+        <motion.div
+          className="bg-gradient-to-br from-gray-50 to-gray-100 p-6 sm:p-8 rounded-2xl"
+          variants={fadeInUp}
+        >
+          <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center px-4">
             Trust Layer 아키텍처
           </h3>
-          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
-            <div className="text-center">
-              <div className="bg-white p-6 rounded-xl shadow-md mb-2">
-                <p className="font-semibold text-gray-900">Application Layer</p>
-                <p className="text-sm text-gray-600">AI Agents</p>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-8">
+            <motion.div
+              className="text-center w-full md:w-auto"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md mb-2">
+                <p className="font-semibold text-gray-900 text-sm sm:text-base">Application Layer</p>
+                <p className="text-xs sm:text-sm text-gray-600">AI Agents</p>
               </div>
-            </div>
-            <div className="text-4xl text-gray-400">↓</div>
-            <div className="text-center">
-              <div className="bg-gradient-to-r from-blue-500 to-cyan-500 p-6 rounded-xl shadow-lg mb-2 text-white">
-                <p className="font-bold">SAGE Trust Layer</p>
+            </motion.div>
+            <div className="text-3xl sm:text-4xl text-gray-400 rotate-90 md:rotate-0">↓</div>
+            <motion.div
+              className="text-center w-full md:w-auto"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="bg-gradient-to-r from-blue-500 to-cyan-500 p-4 sm:p-6 rounded-xl shadow-lg mb-2 text-white">
+                <p className="font-bold text-sm sm:text-base">SAGE Trust Layer</p>
                 <div className="text-xs mt-2 space-y-1">
                   <div>✓ Message Signing</div>
                   <div>✓ Encryption</div>
                   <div>✓ DID Verification</div>
                 </div>
               </div>
-            </div>
-            <div className="text-4xl text-gray-400">↓</div>
-            <div className="text-center">
-              <div className="bg-white p-6 rounded-xl shadow-md mb-2">
-                <p className="font-semibold text-gray-900">Transport Layer</p>
-                <p className="text-sm text-gray-600">HTTP/HTTPS</p>
+            </motion.div>
+            <div className="text-3xl sm:text-4xl text-gray-400 rotate-90 md:rotate-0">↓</div>
+            <motion.div
+              className="text-center w-full md:w-auto"
+              whileHover={{ scale: 1.05 }}
+            >
+              <div className="bg-white p-4 sm:p-6 rounded-xl shadow-md mb-2">
+                <p className="font-semibold text-gray-900 text-sm sm:text-base">Transport Layer</p>
+                <p className="text-xs sm:text-sm text-gray-600">HTTP/HTTPS</p>
               </div>
-            </div>
+            </motion.div>
           </div>
-          <div className="text-center mt-8">
-            <p className="text-gray-600 text-sm">
+          <div className="text-center mt-6 sm:mt-8">
+            <p className="text-gray-600 text-xs sm:text-sm px-4">
               기존 코드 최소 수정으로 Trust Layer 적용 가능
             </p>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

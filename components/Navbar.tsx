@@ -18,16 +18,16 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow-lg" : "bg-transparent"
+      className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${
+        isScrolled ? "bg-slate-900/95 backdrop-blur-md shadow-lg border-b border-white/10" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <Shield className="h-8 w-8 text-blue-600" />
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+            <Shield className="h-8 w-8 text-blue-400" />
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
               {PROJECT.NAME}
             </span>
           </div>
@@ -38,7 +38,7 @@ export default function Navbar() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-blue-600 transition-colors font-medium"
+                className="text-gray-300 hover:text-blue-400 transition-colors font-medium"
               >
                 {item.name}
               </a>
@@ -47,7 +47,7 @@ export default function Navbar() {
               href={LINKS.GITHUB_REPO}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors font-medium"
+              className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-2 rounded-full hover:shadow-lg hover:shadow-blue-500/50 transition-all font-medium"
             >
               GitHub
             </a>
@@ -55,7 +55,7 @@ export default function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-gray-700"
+            className="md:hidden text-gray-300"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -65,13 +65,13 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t">
+        <div className="md:hidden bg-slate-900/95 backdrop-blur-md border-t border-white/10">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md"
+                className="block px-3 py-2 text-gray-300 hover:text-blue-400 hover:bg-white/5 rounded-md"
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
@@ -81,7 +81,7 @@ export default function Navbar() {
               href={LINKS.GITHUB_REPO}
               target="_blank"
               rel="noopener noreferrer"
-              className="block px-3 py-2 bg-blue-600 text-white text-center rounded-md hover:bg-blue-700"
+              className="block px-3 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-center rounded-md hover:shadow-lg hover:shadow-blue-500/50 transition-all"
             >
               GitHub
             </a>
